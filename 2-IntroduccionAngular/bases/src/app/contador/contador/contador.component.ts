@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contador',
-  templateUrl: './contador.component.html',
-  styleUrls: ['./contador.component.css']
+  template: `
+    <h1> {{ titulo }} </h1>
+    <h3>La base es: <strong> {{ base }} </strong></h3>
+
+    <button (click)="acumulador( base )"> + {{ base }}</button>
+
+    <span> {{ numero }} </span>
+
+    <button (click)="acumulador( -base)"> - {{ base }} </button>
+  `
 })
-export class ContadorComponent implements OnInit {
+export class ContadorComponent{
 
-  constructor() { }
+  titulo: string = 'Contador App';
+  numero: number = 10;
+  base  : number = 5;
 
-  ngOnInit(): void {
+  acumulador( valor:number ){
+    this.numero += valor;
   }
-
 }
