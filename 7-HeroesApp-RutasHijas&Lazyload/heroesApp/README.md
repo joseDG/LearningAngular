@@ -1,6 +1,7 @@
-# HeroesApp
+# Creacion de Rutas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+flat hace referencia que lo escriba en la raiz del proyecto y no haga un directorio
+`ng g m appRouting --flat`
 
 ## Development server
 
