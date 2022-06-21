@@ -3,7 +3,8 @@
 flat hace referencia que lo escriba en la raiz del proyecto y no haga un directorio
 `ng g m appRouting --flat`
 
-## Development server
+## Crear una ruta en cada compoenete
+`ng g m auth/authRouting --flat`
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
