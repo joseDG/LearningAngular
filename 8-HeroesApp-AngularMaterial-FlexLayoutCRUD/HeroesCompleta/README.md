@@ -5,6 +5,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Crear un Pipe
 `ng g pipe heroes/pipes/imagen --skipTests`
 
+## Crear un guards
+`ng g guard auth/guards/auth --skipTests`
+
+Estos guards se los conoce como un servicio | validador de las sessiones del usuario
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
