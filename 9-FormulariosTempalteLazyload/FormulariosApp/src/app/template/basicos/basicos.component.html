@@ -50,13 +50,18 @@
                  class="form-control"
                  ngModel
                  name="existencia"
-                 placeholder="Existencias del producto">
+                 customMin
+                 [minimo]="0"
+                 placeholder="Existencias del producto"
+                 required>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary float-end">
+          <button type="submit"
+            [disabled]="miFormulario.invalid" 
+            class="btn btn-primary float-end">
             Guardar
           </button>
         </div>
