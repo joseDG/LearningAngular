@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChartConfiguration } from 'chart.js';
 
 
 
@@ -11,8 +12,14 @@ import { Component } from '@angular/core';
 export class Grafica1Component {
 
   public labels1: string[] = ['Pan', 'Refresco', 'Tacos'];
-  public data1 = [
-    [10, 15, 40],
+  
+
+  public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
+    { data: [ 10, 15, 40 ], label: 'Series A' },
   ];
+
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+  responsive: false
+};
 
 }
