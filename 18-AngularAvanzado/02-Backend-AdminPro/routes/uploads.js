@@ -1,25 +1,21 @@
 /*
-  Hospitales
-  ruta : 'api/upload'
-*/
 
-const {Router} = require('express');
+    ruta: api/uploads/
+*/
+const { Router } = require('express');
 const expressFileUpload = require('express-fileupload');
 
-const { fileUpload, retornarImagen } = require('../controllers/uploads');
-const { validarJWT } = require('../middlewares/validar-jwt');
 
+const { validarJWT } = require('../middlewares/validar-jwt');
+const { fileUpload, retornaImagen } = require('../controllers/uploads');
 
 const router = Router();
 
-router.use(expressFileUpload({
-  // limits: { fileSize: 50 * 1024 * 1024 },
-}));
+router.use( expressFileUpload() );
 
+router.put('/:tipo/:id', validarJWT , fileUpload );
 
-router.put('/:tipo/:id', validarJWT, fileUpload);
-
-router.get('/:tipo/:foto',retornarImagen );
+router.get('/:tipo/:foto', retornaImagen );
 
 
 
