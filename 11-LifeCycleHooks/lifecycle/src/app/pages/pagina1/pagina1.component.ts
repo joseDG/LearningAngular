@@ -1,4 +1,5 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pagina1',
@@ -6,39 +7,58 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   styles: [
   ]
 })
-export class Pagina1Component implements OnInit, OnChanges, DoCheck, AfterContentInit,
-AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
+export class Pagina1Component implements OnInit, OnChanges, DoCheck, AfterContentInit, 
+    AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
-  constructor() { console.log('constructor')}
+  nombre: string = 'Fernando';
+  segundos: number = 0;
+  timerSubscription!: Subscription;
 
-  ngOnInit(): void {
-    console.log('ngOnInit');
+  constructor() {
+    console.log('contructor');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnchanges');
+    console.log('ngOnChanges');
   }
-
+  
   ngDoCheck(): void {
+    console.log('ngDoCheck');
   }
-
+  
   ngAfterContentInit(): void {
-    console.log('ngAfeterContentInit');
+    console.log('ngAfterContentInit');
   }
+  
   ngAfterContentChecked(): void {
-    console.log('ngAfterContentCheck');
+    console.log('ngAfterContentChecked');
   }
-
+  
   ngAfterViewInit(): void {
-    console.log('ngAfeterViewInit');
+    console.log('ngAfterViewInit');
   }
-
+  
   ngAfterViewChecked(): void {
-    console.log('ngAfterView');
+    console.log('ngAfterViewChecked');
   }
-
+  
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
+    this.timerSubscription.unsubscribe();
+    console.log('timer limpiado');
+  }
+  
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this.timerSubscription = interval(1000).subscribe( i => {
+      this.segundos = i;
+    })
+  }
+
+
+  guardar() {
+
   }
 
 }
